@@ -1,0 +1,8 @@
+{
+  "name": "COLORPIXO.COM",
+  "description": "Pick • Create • Convert • Analyze. A fast, privacy-first, one-stop color toolkit with live conversions, image extraction, palette generator, contrast checker, and guides.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

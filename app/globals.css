@@ -1,0 +1,175 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    /* COLORPIXO Light Mode Design Tokens */
+    --bg-main: #F7F8FC;
+    --surface-main: #FFFFFF;
+    --text-main: #111827;
+    --text-secondary: #64748B;
+    --primary: #7C3AED;
+    --secondary: #06B6D4;
+    --accent: #EC4899;
+    --border-main: #E2E8F0;
+
+    /* Theme Ambient Canvas Gradient */
+    --theme-gradient: radial-gradient(at 0% 0%, rgba(124, 58, 237, 0.08) 0px, transparent 50%),
+      radial-gradient(at 100% 0%, rgba(236, 72, 153, 0.08) 0px, transparent 50%),
+      radial-gradient(at 50% 30%, rgba(6, 182, 212, 0.06) 0px, transparent 55%),
+      radial-gradient(at 85% 85%, rgba(124, 58, 237, 0.05) 0px, transparent 50%),
+      linear-gradient(180deg, #F7F8FC 0%, #F1F4F9 100%);
+  }
+
+  .dark {
+    /* COLORPIXO Dark Mode Design Tokens */
+    --bg-main: #0B0F19;
+    --surface-main: #141A26;
+    --text-main: #F9FAFB;
+    --text-secondary: #94A3B8;
+    --primary: #A78BFA;
+    --secondary: #22D3EE;
+    --accent: #F472B6;
+    --border-main: #273244;
+
+    /* Dark Mode Cosmic Ambient Glow */
+    --theme-gradient: radial-gradient(at 0% 0%, rgba(124, 58, 237, 0.18) 0px, transparent 55%),
+      radial-gradient(at 100% 0%, rgba(236, 72, 153, 0.15) 0px, transparent 55%),
+      radial-gradient(at 50% 35%, rgba(6, 182, 212, 0.12) 0px, transparent 60%),
+      radial-gradient(at 85% 85%, rgba(167, 139, 250, 0.10) 0px, transparent 55%),
+      linear-gradient(180deg, #0B0F19 0%, #0d1424 50%, #080c14 100%);
+  }
+
+  body {
+    background-color: var(--bg-main);
+    background-image: var(--theme-gradient);
+    background-attachment: fixed;
+    color: var(--text-main);
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+/* COLORPIXO Brand Gradient Utility */
+.brand-gradient {
+  background: linear-gradient(135deg, #7C3AED 0%, #EC4899 50%, #06B6D4 100%);
+}
+
+.brand-gradient-text {
+  background: linear-gradient(135deg, #7C3AED 0%, #EC4899 50%, #06B6D4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.dark .brand-gradient-text {
+  background: linear-gradient(135deg, #A78BFA 0%, #F472B6 50%, #22D3EE 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Glassmorphism surfaces */
+.glass-surface {
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-main);
+}
+
+.dark .glass-surface {
+  background-color: rgba(20, 26, 38, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-main);
+}
+
+/* Alpha checkerboard pattern for translucent color swatches */
+.checkerboard {
+  background-image: linear-gradient(45deg, #cbd5e1 25%, transparent 25%),
+    linear-gradient(-45deg, #cbd5e1 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #cbd5e1 75%),
+    linear-gradient(-45deg, transparent 75%, #cbd5e1 75%);
+  background-size: 16px 16px;
+  background-position: 0 0, 0 8px, 8px -8px, -8px 0px;
+}
+
+.dark .checkerboard {
+  background-image: linear-gradient(45deg, #1e293b 25%, transparent 25%),
+    linear-gradient(-45deg, #1e293b 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #1e293b 75%),
+    linear-gradient(-45deg, transparent 75%, #1e293b 75%);
+}
+
+/* Custom minimal scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #334155;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+/* Google Translate Clean Integration - Zero Layout Disruption */
+.goog-te-banner-frame,
+.goog-te-banner-frame.skiptranslate,
+iframe.goog-te-banner-frame,
+#goog-gt-tt,
+.goog-te-balloon-frame,
+.goog-tooltip,
+.goog-tooltip:hover {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+body {
+  top: 0px !important;
+  position: static !important;
+}
+
+.skiptranslate:not(.goog-te-combo) {
+  display: none !important;
+}
+
+#google_translate_element {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+.goog-text-highlight {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Ensure code, hex color codes, and technical values are protected */
+.notranslate,
+[translate="no"] {
+  translate: no !important;
+}
+
+/* RTL text alignment support for Arabic, Urdu, Hebrew, Pashto */
+[dir="rtl"] {
+  text-align: right;
+}
+
+[dir="rtl"] .notranslate {
+  direction: ltr;
+  text-align: left;
+}
